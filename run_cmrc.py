@@ -233,7 +233,7 @@ def paragraph_selection(context, answer_text, answer_start, max_len=450):
     return context, answer_start
 
 
-def load_dataset(data_path):
+def load_dataset(data_path, test=False):
     """
     加载CMRC2018格式的数据集
     """
@@ -261,7 +261,7 @@ def load_dataset(data_path):
                 answer_starts = [answer["answer_start"] for answer in qa.get("answers", [])]
                 answers = [answer["text"].strip() for answer in qa.get("answers", [])]
 
-                if len(answer_starts) == 0 or answer_starts[0] == -1:
+                if test or len(answer_starts) == 0 or answer_starts[0] == -1:
                     examples.append({
                         "id": qas_id,
                         "title": title,
@@ -481,7 +481,7 @@ train_tokenized_examples, x_train, y_train = convert_to_features(train_examples,
                                                                  stride=stride)
 print(f"{len(train_examples)} train_examples {len(train_tokenized_examples)} train_tokenized_examples.")
 
-eval_examples = load_dataset(data_path=eval_path)
+eval_examples = load_dataset(data_path=eval_path, test=True)
 eval_tokenized_examples, x_eval, y_eval = convert_to_features(eval_examples, tokenizer, max_len=max_len,
                                                               stride=stride)
 print(f"{len(eval_examples)} eval_examples {len(eval_tokenized_examples)} eval_tokenized_examples.")

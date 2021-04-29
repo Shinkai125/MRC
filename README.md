@@ -1,4 +1,5 @@
 # HuggingFace-Transformers + Tensoflow2.0 Keras 做机器阅读理解
+
 ## 出发点
 网上的机器阅读理解代码要么太冗余，要么封装的过于严重，所以自己写了一个HuggingFace-Transformers + Tensoflow2.0 Keras 做机器阅读理解代码，还在改进中，欢迎提意见。
 ## 特性
@@ -15,7 +16,7 @@
 
 |      模型       |  数据集  |         参数         | Eval EM | Eval F1 |
 | :-------------: | :------: | :------------------: | :-----: | :-----: |
-| RoBERTa-wwm-ext | CMRC2018 | TPU，Batch_Size = 32 | 84.579  | 62.908  |
+| RoBERTa-wwm-ext | CMRC2018 | TPU，Batch_Size = 32 | 79.559  | 59.211  |
 |                 |          |                      |         |         |
 |                 |          |                      |         |         |
 
